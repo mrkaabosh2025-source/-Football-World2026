@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>كأس العالم 2026 - مدينة مستر كابوش</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <style>
+      .game-ui { position: absolute; top: 10px; left: 10px; z-index: 100; background: rgba(0,0,0,0.7); color: gold; padding: 15px; border-radius: 10px; font-family: sans-serif; border: 2px solid gold; }
+      .controls { position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; }
+    </style>
+  </head>
+  <body>
+
+    <div class="game-ui">
+      <h2>🏆 كأس العالم 2026</h2>
+      <p>المطور: مستر كابوش (10 سنوات)</p>
+      <hr>
+      <button onclick="alert('تم تفعيل وضع اللاعب ⚽')">⚽ لاعب</button>
+      <button onclick="alert('تم تفعيل وضع الحكم ⚖️')">⚖️ حكم</button>
+      <button onclick="alert('تم تفعيل وضع المسعف 🚑')">🚑 مسعف</button>
+    </div>
+
+    <div class="controls">استخدم الأسهم للحركة والماوس للنظر</div>
+
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="hero" src="Adventurer.glb"></a-asset-item>
+        <a-asset-item id="car" src="Car.glb"></a-asset-item>
+        <a-asset-item id="building" src="Big Building.glb"></a-asset-item>
+        <a-asset-item id="bus" src="Bus.glb"></a-asset-item>
+        <a-asset-item id="police" src="سيارة شرطة.glb"></a-asset-item>
+        <a-asset-item id="tree" src="Tree.glb"></a-asset-item>
+        <a-asset-item id="pizza" src="Pizza Corner.glb"></a-asset-item>
+      </a-assets>
+
+      <a-entity gltf-model="#building" position="-15 0 -20" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#pizza" position="15 0 -15" scale="1 1 1"></a-entity>
+      
+      <a-entity gltf-model="#car" position="-5 0 -10" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="#police" position="5 0 -12" rotation="0 -45 0"></a-entity>
+      <a-entity gltf-model="#bus" position="12 0 -25" rotation="0 90 0"></a-entity>
+
+      <a-entity gltf-model="#tree" position="-10 0 -5"></a-entity>
+      <a-entity gltf-model="#tree" position="10 0 -5"></a-entity>
+
+      <a-plane position="0 0.1 -45" rotation="-90 0 0" width="50" height="70" color="#2d5a27"></a-plane>
+      <a-text value="FIFA WORLD CUP 2026" position="0 5 -45" align="center" width="40" color="gold"></a-text>
+
+      <a-entity id="rig" movement-controls="speed: 0.3" position="0 0 0">
+        <a-entity gltf-model="#hero" position="0 0 0" rotation="0 180 0" animation-mixer></a-entity>
+        <a-entity camera look-controls position="0 1.6 0"></a-entity>
+      </a-entity>
+
+      <a-sky color="#87CEEB"></a-sky>
+      <a-light type="ambient" intensity="0.8"></a-light>
+    </a-scene>
+
+  </body>
+</html>
